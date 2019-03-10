@@ -44,9 +44,8 @@ class Team extends React.Component {
 
     const teamSeed = this.props.team ? (
       <NumericInput
-        min={0}
-        max={100}
-        value={50}
+        min={1}
+        max={64}
         name={this.props.team.slug}
         value={this.props.team.seed}
         onChange={this.props.handleSeedChange}
