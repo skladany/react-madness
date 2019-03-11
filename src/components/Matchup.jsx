@@ -7,8 +7,22 @@ const Wrapper = styled.section`
 `;
 
 class Matchup extends React.Component {
+  handleDetermineWinner = children => {
+    const { team: teamA } = children[0].props;
+    const { team: teamB } = children[1].props;
+
+    this.props.determineWinner(teamA, teamB, this.props.bracketPath);
+  };
+
   render() {
-    return <Wrapper>{this.props.children}</Wrapper>;
+    return (
+      <Wrapper>
+        {this.props.children}
+        <button onClick={() => this.handleDetermineWinner(this.props.children)}>
+          Play
+        </button>
+      </Wrapper>
+    );
   }
 }
 
