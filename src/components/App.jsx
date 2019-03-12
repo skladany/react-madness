@@ -57,6 +57,19 @@ class App extends Component {
     console.log(teamA);
     console.log(teamB);
     console.log(bracketPath);
+
+    const pathArr = bracketPath.split(".");
+
+    console.log(pathArr);
+
+    // Arbitrary set state of teamA to "win"
+    const bracket = { ...this.state.bracket };
+
+    const test = eval(`bracket["roundOne"]["topLeft"]`);
+
+    console.log("Eval", test);
+
+    //bracket[`roundOne][topLeft`].winner = "rutgers";
   };
 
   render() {
@@ -70,7 +83,7 @@ class App extends Component {
                 {this.state.bracket[round][division].map(matchup => (
                   <Matchup
                     determineWinner={this.determineWinner}
-                    bracketPath={`this.state.bracket.${round}.${division}`}
+                    bracketPath={`${round}.${division}`}
                   >
                     <Team
                       team={this.state.teams[matchup.teamA]}
