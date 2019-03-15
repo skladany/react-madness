@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Matchup from "./Matchup";
+import Team from "./Team";
 import { bracket, teams } from "../bracket-team-data";
 import "../css/App.css";
 
@@ -59,17 +60,11 @@ class App extends Component {
     // Arbitrary set state of teamA to "win"
     const bracket = { ...this.state.bracket };
 
-<<<<<<< HEAD
-    // const test = eval(`bracket["roundOne"]["topLeft"]`);
-
-    console.log(bracket[2].winner);
-=======
     console.log(bracket);
 
     console.log("here", bracket[round][division]);
 
     bracket[round][division][0].winner = "rutgers";
->>>>>>> original-state-shape
 
     this.setState({
       bracket
@@ -77,33 +72,16 @@ class App extends Component {
   };
 
   render() {
-    //console.log(typeof this.state.bracket[2].winner);
-
     return (
       <div className="App">
-<<<<<<< HEAD
-        <h2>TopLeft</h2>
-
-        {Object.keys(this.state.bracket).map(round => console.log(round))}
-
-        {/* {Object.keys(this.state.bracket).map(round => (
-=======
         <div>{JSON.stringify(this.state.bracket)}</div>
         {Object.keys(this.state.bracket).map((round, i) => (
->>>>>>> original-state-shape
           <Round>
             {Object.keys(this.state.bracket[round]).map(division => (
               <Division>
                 {this.state.bracket[round][division].map(matchup => (
                   <Matchup
                     determineWinner={this.determineWinner}
-<<<<<<< HEAD
-                    bracketPath={`${round}.${division}`}
-                    teamA={this.state.teams[matchup.teamA]}
-                    teamB={this.state.teams[matchup.teamB]}
-                    winner={matchup.winner}
-                  />
-=======
                     round={round}
                     division={division}
                   >
@@ -118,12 +96,11 @@ class App extends Component {
                       handleSeedChange={this.handleSeedChange}
                     />
                   </Matchup>
->>>>>>> original-state-shape
                 ))}
               </Division>
             ))}
           </Round>
-        ))} */}
+        ))}
       </div>
     );
   }
