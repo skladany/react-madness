@@ -48,7 +48,7 @@ class App extends Component {
     });
   };
 
-  determineWinner = (teamA, teamB, bracketPath) => {
+  determineWinner = (teamA, teamB, round, division) => {
     // Change state of matchup to Rutgers as winner,
     // but how do we know where in the state bracket?
 
@@ -56,34 +56,34 @@ class App extends Component {
 
     console.log(teamA);
     console.log(teamB);
-    console.log(bracketPath);
-
-    const pathArr = bracketPath.split(".");
-
-    console.log(pathArr);
 
     // Arbitrary set state of teamA to "win"
     const bracket = { ...this.state.bracket };
 
-    const test = eval(`bracket["roundOne"]["topLeft"]`);
+    console.log(bracket);
 
-    console.log("Eval", test);
+    console.log("here", bracket[round][division]);
 
-    //bracket[`roundOne][topLeft`].winner = "rutgers";
+    bracket[round][division][0].winner = "rutgers";
+
+    this.setState({
+      bracket
+    });
   };
 
   render() {
     return (
       <div className="App">
-        {/* <div>{JSON.stringify(this.state.teams)}</div> */}
-        {Object.keys(this.state.bracket).map(round => (
+        <div>{JSON.stringify(this.state.bracket)}</div>
+        {Object.keys(this.state.bracket).map((round, i) => (
           <Round>
             {Object.keys(this.state.bracket[round]).map(division => (
               <Division>
                 {this.state.bracket[round][division].map(matchup => (
                   <Matchup
                     determineWinner={this.determineWinner}
-                    bracketPath={`${round}.${division}`}
+                    round={round}
+                    division={division}
                   >
                     <Team
                       team={this.state.teams[matchup.teamA]}

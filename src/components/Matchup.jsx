@@ -11,7 +11,12 @@ class Matchup extends React.Component {
     const { team: teamA } = children[0].props;
     const { team: teamB } = children[1].props;
 
-    this.props.determineWinner(teamA, teamB, this.props.bracketPath);
+    this.props.determineWinner(
+      teamA,
+      teamB,
+      this.props.round,
+      this.props.division
+    );
   };
 
   render() {
