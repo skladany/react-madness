@@ -16,10 +16,19 @@ class Matchup extends React.Component {
     // const { team: teamA } = children[0].props;
     // const { team: teamB } = children[1].props;
 
+<<<<<<< HEAD
     // this.props.determineWinner(teamA, teamB, this.props.bracketPath);
     this.setState({
       winner: this.props.teamA.slug
     });
+=======
+    this.props.determineWinner(
+      teamA,
+      teamB,
+      this.props.round,
+      this.props.division
+    );
+>>>>>>> original-state-shape
   };
 
   render() {

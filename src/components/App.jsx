@@ -47,7 +47,7 @@ class App extends Component {
     });
   };
 
-  determineWinner = (teamA, teamB, bracketPath) => {
+  determineWinner = (teamA, teamB, round, division) => {
     // Change state of matchup to Rutgers as winner,
     // but how do we know where in the state bracket?
 
@@ -55,20 +55,25 @@ class App extends Component {
 
     console.log(teamA);
     console.log(teamB);
-    console.log(bracketPath);
-
-    const pathArr = bracketPath.split(".");
-
-    console.log(pathArr);
 
     // Arbitrary set state of teamA to "win"
     const bracket = { ...this.state.bracket };
 
+<<<<<<< HEAD
     // const test = eval(`bracket["roundOne"]["topLeft"]`);
 
     console.log(bracket[2].winner);
+=======
+    console.log(bracket);
 
-    //bracket[`roundOne][topLeft`].winner = "rutgers";
+    console.log("here", bracket[round][division]);
+
+    bracket[round][division][0].winner = "rutgers";
+>>>>>>> original-state-shape
+
+    this.setState({
+      bracket
+    });
   };
 
   render() {
@@ -76,22 +81,44 @@ class App extends Component {
 
     return (
       <div className="App">
+<<<<<<< HEAD
         <h2>TopLeft</h2>
 
         {Object.keys(this.state.bracket).map(round => console.log(round))}
 
         {/* {Object.keys(this.state.bracket).map(round => (
+=======
+        <div>{JSON.stringify(this.state.bracket)}</div>
+        {Object.keys(this.state.bracket).map((round, i) => (
+>>>>>>> original-state-shape
           <Round>
             {Object.keys(this.state.bracket[round]).map(division => (
               <Division>
                 {this.state.bracket[round][division].map(matchup => (
                   <Matchup
                     determineWinner={this.determineWinner}
+<<<<<<< HEAD
                     bracketPath={`${round}.${division}`}
                     teamA={this.state.teams[matchup.teamA]}
                     teamB={this.state.teams[matchup.teamB]}
                     winner={matchup.winner}
                   />
+=======
+                    round={round}
+                    division={division}
+                  >
+                    <Team
+                      team={this.state.teams[matchup.teamA]}
+                      winner={matchup.winner}
+                      handleSeedChange={this.handleSeedChange}
+                    />
+                    <Team
+                      team={this.state.teams[matchup.teamB]}
+                      winner={matchup.winner}
+                      handleSeedChange={this.handleSeedChange}
+                    />
+                  </Matchup>
+>>>>>>> original-state-shape
                 ))}
               </Division>
             ))}
