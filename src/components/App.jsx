@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Matchup from "./Matchup";
-import Team from "./Team";
 import { bracket, teams } from "../bracket-team-data";
 import "../css/App.css";
 
@@ -65,18 +64,23 @@ class App extends Component {
     // Arbitrary set state of teamA to "win"
     const bracket = { ...this.state.bracket };
 
-    const test = eval(`bracket["roundOne"]["topLeft"]`);
+    // const test = eval(`bracket["roundOne"]["topLeft"]`);
 
-    console.log("Eval", test);
+    console.log(bracket[2].winner);
 
     //bracket[`roundOne][topLeft`].winner = "rutgers";
   };
 
   render() {
+    //console.log(typeof this.state.bracket[2].winner);
+
     return (
       <div className="App">
-        {/* <div>{JSON.stringify(this.state.teams)}</div> */}
-        {Object.keys(this.state.bracket).map(round => (
+        <h2>TopLeft</h2>
+
+        {Object.keys(this.state.bracket).map(round => console.log(round))}
+
+        {/* {Object.keys(this.state.bracket).map(round => (
           <Round>
             {Object.keys(this.state.bracket[round]).map(division => (
               <Division>
@@ -84,23 +88,15 @@ class App extends Component {
                   <Matchup
                     determineWinner={this.determineWinner}
                     bracketPath={`${round}.${division}`}
-                  >
-                    <Team
-                      team={this.state.teams[matchup.teamA]}
-                      winner={matchup.winner}
-                      handleSeedChange={this.handleSeedChange}
-                    />
-                    <Team
-                      team={this.state.teams[matchup.teamB]}
-                      winner={matchup.winner}
-                      handleSeedChange={this.handleSeedChange}
-                    />
-                  </Matchup>
+                    teamA={this.state.teams[matchup.teamA]}
+                    teamB={this.state.teams[matchup.teamB]}
+                    winner={matchup.winner}
+                  />
                 ))}
               </Division>
             ))}
           </Round>
-        ))}
+        ))} */}
       </div>
     );
   }

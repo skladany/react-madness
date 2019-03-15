@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Team from "./Team";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -7,20 +8,34 @@ const Wrapper = styled.section`
 `;
 
 class Matchup extends React.Component {
-  handleDetermineWinner = children => {
-    const { team: teamA } = children[0].props;
-    const { team: teamB } = children[1].props;
+  state = {
+    winner: false
+  };
 
-    this.props.determineWinner(teamA, teamB, this.props.bracketPath);
+  determineWinner = children => {
+    // const { team: teamA } = children[0].props;
+    // const { team: teamB } = children[1].props;
+
+    // this.props.determineWinner(teamA, teamB, this.props.bracketPath);
+    this.setState({
+      winner: this.props.teamA.slug
+    });
   };
 
   render() {
     return (
       <Wrapper>
-        {this.props.children}
-        <button onClick={() => this.handleDetermineWinner(this.props.children)}>
-          Play
-        </button>
+        <Team
+          team={this.props.teamA}
+          winner={this.state.winner}
+          handleSeedChange={this.handleSeedChange}
+        />
+        <Team
+          team={this.props.teamB}
+          winner={this.state.winner}
+          handleSeedChange={this.handleSeedChange}
+        />
+        <button onClick={() => this.determineWinner()}>Play</button>
       </Wrapper>
     );
   }
