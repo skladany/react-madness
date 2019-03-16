@@ -4,7 +4,7 @@ A simple React based March Madness bracket, which allows you to "Reseed" teams, 
 
 ## Todo
 
-- Move state _down_ to lowest level required. Only Matchup needs to know the seeds and winner, but left up winner (and eventually round winner)
+- State is not passing down to round 2 correctly
 
 ## Known Bugs
 

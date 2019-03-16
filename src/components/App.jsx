@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Matchup from "./Matchup";
-import Team from "./Team";
+import Bracket from "./Bracket";
 import { bracket, teams } from "../bracket-team-data";
 import "../css/App.css";
 
@@ -11,30 +10,20 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-const Division = styled.section`
-  padding: 1em;
-  background: papayawhip;
-`;
-
-const Round = styled.section`
-  width: 25%;
-  float: left;
-  padding: 1em;
-  background: purple;
-`;
-
 class App extends Component {
   state = {
-    bracket: {},
-    teams: {}
+    bracket,
+    teams,
+    matchId: 4
   };
 
-  componentDidMount() {
-    this.setState({
-      bracket,
-      teams
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     bracket,
+  //     teams,
+  //     matchId: 4
+  //   });
+  // }
 
   handleSeedChange = (valueAsNumber, valueAsString, input) => {
     const slug = input.name;
@@ -48,23 +37,24 @@ class App extends Component {
     });
   };
 
-  determineWinner = (teamA, teamB, round, division) => {
-    // Change state of matchup to Rutgers as winner,
-    // but how do we know where in the state bracket?
-
-    // Need to record the "path" in the state somehow?
-
-    console.log(teamA);
-    console.log(teamB);
+  determineWinner = (teamA, teamB, round, division, matchId) => {
+    // State is updating, but not getting passed down to round 2 as it should
 
     // Arbitrary set state of teamA to "win"
-    const bracket = { ...this.state.bracket };
+    let bracket = { ...this.state.bracket };
 
-    console.log(bracket);
+    bracket[division][round][matchId].winner = teamA.slug;
 
-    console.log("here", bracket[round][division]);
+    // Set up next match as well
+    const nextRound = parseInt(round) + 1;
+    const nextMatchId = Math.floor(matchId / 2);
+    const teamLocation = matchId % 2 ? "teamB" : "teamA";
 
-    bracket[round][division][0].winner = "rutgers";
+    // For now, always pick the "top" team, eventually will be random
+    const winningTeamSlug = teamA.slug;
+    // const winningTeamSlug = matchId % 2 ? teamB.slug : teamA.slug;
+
+    bracket[division][nextRound][nextMatchId][teamLocation] = winningTeamSlug;
 
     this.setState({
       bracket
@@ -74,33 +64,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>{JSON.stringify(this.state.bracket)}</div>
-        {Object.keys(this.state.bracket).map((round, i) => (
-          <Round>
-            {Object.keys(this.state.bracket[round]).map(division => (
-              <Division>
-                {this.state.bracket[round][division].map(matchup => (
-                  <Matchup
-                    determineWinner={this.determineWinner}
-                    round={round}
-                    division={division}
-                  >
-                    <Team
-                      team={this.state.teams[matchup.teamA]}
-                      winner={matchup.winner}
-                      handleSeedChange={this.handleSeedChange}
-                    />
-                    <Team
-                      team={this.state.teams[matchup.teamB]}
-                      winner={matchup.winner}
-                      handleSeedChange={this.handleSeedChange}
-                    />
-                  </Matchup>
-                ))}
-              </Division>
-            ))}
-          </Round>
-        ))}
+        {/* <div>{JSON.stringify(this.state.bracket)}</div> */}
+        <Bracket
+          bracket={this.state.bracket}
+          teams={this.state.teams}
+          handleSeedChange={this.handleSeedChange}
+          determineWinner={this.determineWinner}
+        />
       </div>
     );
   }

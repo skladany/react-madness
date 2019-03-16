@@ -11,11 +11,14 @@ class Matchup extends React.Component {
     const { team: teamA } = children[0].props;
     const { team: teamB } = children[1].props;
 
+    console.log(children);
+
     this.props.determineWinner(
       teamA,
       teamB,
       this.props.round,
-      this.props.division
+      this.props.division,
+      this.props.matchId
     );
   };
 
@@ -23,6 +26,7 @@ class Matchup extends React.Component {
     return (
       <Wrapper>
         {this.props.children}
+        {/* {this.props.matchId} */}
         <button onClick={() => this.handleDetermineWinner(this.props.children)}>
           Play
         </button>

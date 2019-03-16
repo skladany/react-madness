@@ -43,20 +43,24 @@ class Team extends React.Component {
     const teamName = this.props.team ? `${this.props.team.name}` : "Undecided";
 
     const teamSeed = this.props.team ? (
-      <NumericInput
-        min={1}
-        max={64}
-        name={this.props.team.slug}
-        value={this.props.team.seed}
-        onChange={this.props.handleSeedChange}
-      />
+      this.props.round == 0 ? (
+        <NumericInput
+          min={1}
+          max={64}
+          name={this.props.team.slug}
+          value={this.props.team.seed}
+          onChange={this.props.handleSeedChange}
+        />
+      ) : (
+        <div>{this.props.team.seed}</div>
+      )
     ) : (
       ""
     );
 
     return (
       <TeamDiv className={teamStatus}>
-        {teamName} {teamStatus}
+        {teamName}
         {teamSeed}
       </TeamDiv>
     );

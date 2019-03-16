@@ -1,28 +1,39 @@
-/* TopLeft:
-Round1: 0-15
-Round2: 16-23
-Round3: 24-27
-Round4: 28-19
-FinalFour: 30 */
-
 const bracket = {
-  roundOne: {
-    topLeft: [
+  topLeft: {
+    0: [
       {
         teamA: "rutgers",
+        teamB: "fordham",
+        winner: false
+      },
+      {
+        teamA: "american",
         teamB: "uPenn",
         winner: false
       },
       {
-        teamA: "uPenn",
-        teamB: "american",
+        teamA: "syracuse",
+        teamB: "uConn",
         winner: false
-      }
-    ],
-    bottomLeft: [
+      },
+      {
+        teamA: "nyu",
+        teamB: "xavier",
+        winner: false
+      },
+      {
+        teamA: "rutgers",
+        teamB: "fordham",
+        winner: false
+      },
+      {
+        teamA: "american",
+        teamB: "uPenn",
+        winner: false
+      },
       {
         teamA: "syracuse",
-        teamB: "uconn",
+        teamB: "uConn",
         winner: false
       },
       {
@@ -30,10 +41,18 @@ const bracket = {
         teamB: "xavier",
         winner: false
       }
-    ]
-  },
-  roundTwo: {
-    topLeft: [
+    ],
+    1: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false
+      },
       {
         teamA: false,
         teamB: false,
@@ -44,10 +63,20 @@ const bracket = {
         teamB: false,
         winner: false
       }
-    ]
-  },
-  roundThree: {
-    topLeft: [
+    ],
+    2: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false
+      }
+    ],
+    3: [
       {
         teamA: false,
         teamB: false,
@@ -83,9 +112,9 @@ const teams = {
     slug: "syracuse",
     seed: "1"
   },
-  uconn: {
+  uConn: {
     name: "U Conn",
-    slug: "uconn",
+    slug: "uConn",
     seed: "2"
   },
   nyu: {
