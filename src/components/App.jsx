@@ -37,24 +37,52 @@ class App extends Component {
     });
   };
 
-  determineWinner = (teamA, teamB, round, division, matchId) => {
+  determineWinner = ({ teamA, teamB, round, division, matchId }) => {
     // State is updating, but not getting passed down to round 2 as it should
 
     // Arbitrary set state of teamA to "win"
     let bracket = { ...this.state.bracket };
-
-    bracket[division][round][matchId].winner = teamA.slug;
 
     // Set up next match as well
     const nextRound = parseInt(round) + 1;
     const nextMatchId = Math.floor(matchId / 2);
     const teamLocation = matchId % 2 ? "teamB" : "teamA";
 
-    // For now, always pick the "top" team, eventually will be random
-    const winningTeamSlug = teamA.slug;
-    // const winningTeamSlug = matchId % 2 ? teamB.slug : teamA.slug;
+    console.log(Math.round(Math.random()) === 0);
 
+    // Super simple way to psueodo randomly pick a winner
+    const winningTeamSlug =
+      Math.round(Math.random()) === 0 ? teamA.slug : teamB.slug;
+
+    bracket[division][round][matchId].winner = winningTeamSlug;
     bracket[division][nextRound][nextMatchId][teamLocation] = winningTeamSlug;
+
+    this.setState({
+      bracket
+    });
+  };
+
+  pickWinner = ({ team, round, division, matchId, winner }) => {
+    // State is updating, but not getting passed down to round 2 as it should
+
+    // Arbitrary set state of teamA to "win"
+    let bracket = { ...this.state.bracket };
+
+    // Set up next match as well
+    const nextRound = parseInt(round) + 1;
+    const nextMatchId = Math.floor(matchId / 2);
+    const teamLocation = matchId % 2 ? "teamB" : "teamA";
+
+    console.log("d", division);
+    console.log(round);
+    console.log(matchId);
+    console.log(winner);
+
+    // Set the pick!
+    bracket[division][round][matchId].winner = winner;
+    bracket[division][nextRound][nextMatchId][teamLocation] = winner;
+
+    console.log("hey", winner);
 
     this.setState({
       bracket
@@ -70,6 +98,7 @@ class App extends Component {
           teams={this.state.teams}
           handleSeedChange={this.handleSeedChange}
           determineWinner={this.determineWinner}
+          pickWinner={this.pickWinner}
         />
       </div>
     );

@@ -4,7 +4,10 @@ A simple React based March Madness bracket, which allows you to "Reseed" teams, 
 
 ## Todo
 
-- State is not passing down to round 2 correctly
+- "undo" a pick
+- Set up random logic
+- Set up rando logic with seeding
+- Set up rest of bracket!
 
 ## Known Bugs
 

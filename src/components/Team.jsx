@@ -27,10 +27,15 @@ class Team extends React.Component {
   //   }),
   //   addToOrder: PropTypes.func
   // };
-
-  handleChange = event => {
-    console.log("changed");
-    console.log(event);
+  handlePickWinner = () => {
+    this.props.pickWinner({
+      team: this.props.team,
+      round: this.props.round,
+      division: this.props.division,
+      matchId: this.props.matchId,
+      winner: this.props.team.slug
+    });
+    console.log("pick a winnner");
   };
 
   render() {
@@ -43,7 +48,7 @@ class Team extends React.Component {
     const teamName = this.props.team ? `${this.props.team.name}` : "Undecided";
 
     const teamSeed = this.props.team ? (
-      this.props.round == 0 ? (
+      this.props.round == 0 && !this.props.winner ? (
         <NumericInput
           min={1}
           max={64}
@@ -59,7 +64,7 @@ class Team extends React.Component {
     );
 
     return (
-      <TeamDiv className={teamStatus}>
+      <TeamDiv className={teamStatus} onClick={() => this.handlePickWinner()}>
         {teamName}
         {teamSeed}
       </TeamDiv>

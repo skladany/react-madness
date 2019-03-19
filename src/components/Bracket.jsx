@@ -34,14 +34,20 @@ class Bracket extends React.Component {
                     key={m}
                   >
                     <Team
+                      pickWinner={this.props.pickWinner}
                       team={this.props.teams[matchup.teamA]}
                       round={round}
+                      division={division}
+                      matchId={m}
                       winner={matchup.winner}
                       handleSeedChange={this.props.handleSeedChange}
                     />
                     <Team
+                      pickWinner={this.props.pickWinner}
                       team={this.props.teams[matchup.teamB]}
                       round={round}
+                      division={division}
+                      matchId={m}
                       winner={matchup.winner}
                       handleSeedChange={this.props.handleSeedChange}
                     />

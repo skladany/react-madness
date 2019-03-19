@@ -7,29 +7,41 @@ const Wrapper = styled.section`
 `;
 
 class Matchup extends React.Component {
-  handleDetermineWinner = children => {
+  handleDetermineWinner = (children, winner) => {
     const { team: teamA } = children[0].props;
     const { team: teamB } = children[1].props;
 
-    console.log(children);
-
-    this.props.determineWinner(
+    this.props.determineWinner({
       teamA,
       teamB,
-      this.props.round,
-      this.props.division,
-      this.props.matchId
-    );
+      round: this.props.round,
+      division: this.props.division,
+      matchId: this.props.matchId,
+      winner
+    });
   };
 
   render() {
+    const playGame =
+      this.props.children[0].props.team &&
+      this.props.children[1].props.team &&
+      !this.props.children[0].props.winner &&
+      !this.props.children[1].props.winner ? (
+        <button
+          onClick={() =>
+            this.handleDetermineWinner(this.props.children, "rutgers")
+          }
+        >
+          Play
+        </button>
+      ) : (
+        ""
+      );
+
     return (
       <Wrapper>
         {this.props.children}
-        {/* {this.props.matchId} */}
-        <button onClick={() => this.handleDetermineWinner(this.props.children)}>
-          Play
-        </button>
+        {playGame}
       </Wrapper>
     );
   }
