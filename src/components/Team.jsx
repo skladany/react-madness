@@ -67,11 +67,13 @@ class Team extends React.Component {
   };
 
   render() {
-    const teamStatus = this.props.winner
-      ? this.props.winner === this.props.team.slug
-        ? "winner"
-        : "loser"
-      : "No Winner";
+    const teamStatus = this.props.team
+      ? this.props.winner
+        ? this.props.winner === this.props.team.slug
+          ? "winner"
+          : "loser"
+        : ""
+      : "";
 
     const teamName = this.props.team ? `${this.props.team.name}` : "Undecided";
 

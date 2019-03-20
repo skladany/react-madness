@@ -105,11 +105,15 @@ class App extends Component {
     console.log(matchId);
     console.log(winner);
 
-    // Set the pick!
-    bracket[division][round - 1][matchId].winner = false;
-    bracket[division][nextRound - 1][nextMatchId * 2][teamLocation] = false;
+    // Unset this box
+    bracket[division][round][matchId].winner = false;
 
-    console.log("hey", winner);
+    // Unset the child box
+    bracket[division][nextRound][nextMatchId * 2][teamLocation] = false;
+
+    // Unset the parent box
+    bracket[division][round - 1][matchId * 2].winner = false;
+    // bracket[division][nextRound - 1][nextMatchId * 2][teamLocation] = false;
 
     this.setState({
       bracket
@@ -119,7 +123,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <div>{JSON.stringify(this.state.bracket)}</div> */}
+        {JSON.stringify(this.state.bracket)}
         <Bracket
           bracket={this.state.bracket}
           teams={this.state.teams}
