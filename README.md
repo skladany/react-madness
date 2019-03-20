@@ -4,10 +4,8 @@ A simple React based March Madness bracket, which allows you to "Reseed" teams, 
 
 ## Todo
 
-- "undo" a pick -- close but needs so more edge cases (round 3 on)
+- flipCoin works manually, but only takes 1 number when hitting play button, why?
 
-- Set up random logic
-- Set up rando logic with seeding
 - Set up rest of bracket!
 
 ## Known Bugs

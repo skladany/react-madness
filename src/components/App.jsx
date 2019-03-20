@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Bracket from "./Bracket";
 import { bracket, teams } from "../bracket-team-data";
+import { coinFlips } from "../coinFlips";
 import "../css/App.css";
 
 const Title = styled.h1`
@@ -13,17 +14,81 @@ const Title = styled.h1`
 class App extends Component {
   state = {
     bracket,
-    teams,
-    matchId: 4
+    teams
   };
 
-  // componentDidMount() {
-  //   this.setState({
-  //     bracket,
-  //     teams,
-  //     matchId: 4
-  //   });
-  // }
+  componentDidMount() {
+    this.getCoinFlips().then(data => {
+      this.setState({
+        coinFlips: data.split("\n")
+      });
+    });
+  }
+
+  /* Function works! Using cached data now for testing */
+  getCoinFlips = async () => {
+    // const response = await fetch(
+    //   "https://www.random.org/integers/?num=100&min=0&max=1&col=1&base=10&format=plain&rnd=new"
+    // );
+
+    // const data = await response.text();
+
+    // return data;
+    return coinFlips;
+  };
+
+  // 1 = heads
+  // 0 = tails
+  getCoinFlip = () => {
+    const coinFlips = [...this.state.coinFlips];
+
+    const coinFlip = coinFlips.pop();
+
+    this.setState({
+      coinFlips
+    });
+
+    return coinFlip;
+  };
+
+  /* Heads (1) goes to seedA
+     Tails (0) goes to seedB
+
+     Returns true is Seed A wins, 
+     false if seedB wins */
+  flipCoin = (seedA, seedB) => {
+    console.log("seedA", seedA);
+    console.log("seedB", seedB);
+
+    seedA = 4;
+    seedB = 4;
+
+    let seedAwins = 0;
+    let seedBwins = 0;
+
+    while (seedAwins < seedA && seedBwins < seedB) {
+      let flipIsHeads = this.getCoinFlip();
+
+      if (flipIsHeads) {
+        seedAwins++;
+      } else seedBwins++;
+
+      console.log(
+        `Flip is ${flipIsHeads} - seedAwins: ${seedAwins}, seedBwins: ${seedBwins}`
+      );
+
+      // Check for a winner
+      if (seedAwins == seedA) {
+        console.log("seedAwins wins", seedAwins);
+        return true;
+      }
+
+      if (seedBwins == seedB) {
+        console.log("seedBwins wins", seedBwins);
+        return false;
+      }
+    }
+  };
 
   handleSeedChange = (valueAsNumber, valueAsString, input) => {
     const slug = input.name;
@@ -51,8 +116,12 @@ class App extends Component {
     console.log(Math.round(Math.random()) === 0);
 
     // Super simple way to psueodo randomly pick a winner
-    const winningTeamSlug =
-      Math.round(Math.random()) === 0 ? teamA.slug : teamB.slug;
+    const winningTeamSlug = this.flipCoin(
+      parseInt(teamA.seed),
+      parseInt(teamB.seed)
+    )
+      ? teamA.slug
+      : teamB.slug;
 
     bracket[division][round][matchId].winner = winningTeamSlug;
     bracket[division][nextRound][nextMatchId][teamLocation] = winningTeamSlug;
@@ -63,6 +132,8 @@ class App extends Component {
   };
 
   pickWinner = ({ team, round, division, matchId, winner }) => {
+    return;
+
     // State is updating, but not getting passed down to round 2 as it should
 
     // Arbitrary set state of teamA to "win"
@@ -90,6 +161,8 @@ class App extends Component {
   };
 
   unPickWinner = ({ team, round, division, matchId, winner }) => {
+    return;
+
     // State is updating, but not getting passed down to round 2 as it should
 
     // Arbitrary set state of teamA to "win"
@@ -121,9 +194,12 @@ class App extends Component {
   };
 
   render() {
+    const status = <li>flip a coin</li>;
+
     return (
       <div className="App">
-        {JSON.stringify(this.state.bracket)}
+        {JSON.stringify(this.state)}
+        <ul>{status}</ul>
         <Bracket
           bracket={this.state.bracket}
           teams={this.state.teams}
