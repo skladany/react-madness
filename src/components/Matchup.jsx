@@ -27,11 +27,7 @@ class Matchup extends React.Component {
       this.props.children[1].props.team &&
       !this.props.children[0].props.winner &&
       !this.props.children[1].props.winner ? (
-        <button
-          onClick={() =>
-            this.handleDetermineWinner(this.props.children, "rutgers")
-          }
-        >
+        <button onClick={() => this.handleDetermineWinner(this.props.children)}>
           Play
         </button>
       ) : (

@@ -89,6 +89,33 @@ class App extends Component {
     });
   };
 
+  unPickWinner = ({ team, round, division, matchId, winner }) => {
+    // State is updating, but not getting passed down to round 2 as it should
+
+    // Arbitrary set state of teamA to "win"
+    let bracket = { ...this.state.bracket };
+
+    // Set up next match as well
+    const nextRound = parseInt(round) + 1;
+    const nextMatchId = Math.floor(matchId / 2);
+    const teamLocation = matchId % 2 ? "teamB" : "teamA";
+
+    console.log("d", division);
+    console.log(round);
+    console.log(matchId);
+    console.log(winner);
+
+    // Set the pick!
+    bracket[division][round - 1][matchId].winner = false;
+    bracket[division][nextRound - 1][nextMatchId * 2][teamLocation] = false;
+
+    console.log("hey", winner);
+
+    this.setState({
+      bracket
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -99,6 +126,7 @@ class App extends Component {
           handleSeedChange={this.handleSeedChange}
           determineWinner={this.determineWinner}
           pickWinner={this.pickWinner}
+          unPickWinner={this.unPickWinner}
         />
       </div>
     );

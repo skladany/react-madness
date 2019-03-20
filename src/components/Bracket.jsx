@@ -35,6 +35,7 @@ class Bracket extends React.Component {
                   >
                     <Team
                       pickWinner={this.props.pickWinner}
+                      unPickWinner={this.props.unPickWinner}
                       team={this.props.teams[matchup.teamA]}
                       round={round}
                       division={division}
@@ -44,6 +45,7 @@ class Bracket extends React.Component {
                     />
                     <Team
                       pickWinner={this.props.pickWinner}
+                      unPickWinner={this.props.unPickWinner}
                       team={this.props.teams[matchup.teamB]}
                       round={round}
                       division={division}

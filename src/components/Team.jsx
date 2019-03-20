@@ -16,6 +16,11 @@ const TeamDiv = styled.div`
   }
 `;
 
+const SeedWrapper = styled.div`
+  display: inline-block;
+  padding: 2px 5px;
+`;
+
 class Team extends React.Component {
   // static propTypes = {
   //   details: PropTypes.shape({
@@ -27,15 +32,38 @@ class Team extends React.Component {
   //   }),
   //   addToOrder: PropTypes.func
   // };
-  handlePickWinner = () => {
-    this.props.pickWinner({
-      team: this.props.team,
-      round: this.props.round,
-      division: this.props.division,
-      matchId: this.props.matchId,
-      winner: this.props.team.slug
-    });
-    console.log("pick a winnner");
+
+  handleNumericClick = e => {
+    e.stopPropagation();
+    console.log("handleNumericClick");
+  };
+
+  handlePickWinner = e => {
+    console.log("handlePickWinner");
+
+    const { team, round, division, matchId, winner } = this.props;
+    console.log("Round", round);
+
+    if (round > 1) {
+      console.log("do nothing");
+      return false;
+    } else if (round == 1) {
+      this.props.unPickWinner({
+        team,
+        round,
+        division,
+        matchId,
+        winner: false
+      });
+    } else if (round == 0) {
+      this.props.pickWinner({
+        team,
+        round,
+        division,
+        matchId,
+        winner: this.props.team.slug
+      });
+    }
   };
 
   render() {
@@ -49,13 +77,15 @@ class Team extends React.Component {
 
     const teamSeed = this.props.team ? (
       this.props.round == 0 && !this.props.winner ? (
-        <NumericInput
-          min={1}
-          max={64}
-          name={this.props.team.slug}
-          value={this.props.team.seed}
-          onChange={this.props.handleSeedChange}
-        />
+        <SeedWrapper onClick={this.handleNumericClick}>
+          <NumericInput
+            min={1}
+            max={64}
+            name={this.props.team.slug}
+            value={this.props.team.seed}
+            onChange={this.props.handleSeedChange}
+          />
+        </SeedWrapper>
       ) : (
         <div>{this.props.team.seed}</div>
       )
@@ -64,7 +94,7 @@ class Team extends React.Component {
     );
 
     return (
-      <TeamDiv className={teamStatus} onClick={() => this.handlePickWinner()}>
+      <TeamDiv className={teamStatus} onClick={this.handlePickWinner}>
         {teamName}
         {teamSeed}
       </TeamDiv>
