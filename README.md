@@ -1,6 +1,6 @@
 # React Madness
 
-A simple React-based March Madness bracket, which allows you to "Reseed" teams, and uses random.org to "flip a coin" and choose which team progresses to auto-fill your bracket!
+A simple React-based March Madness bracket, which allows you to "re-seed" teams, and uses random.org to "flip a coin" and choose which team progresses to auto-fill your bracket!
 
 **Very, very** much a work in progress. _(Also, did not help much in generating a winning bracket this year!)_
 
