@@ -22,11 +22,11 @@ class Matchup extends React.Component {
   };
 
   render() {
+    const { team: teamA, winner: winnerA } = this.props.children[0].props;
+    const { team: teamB, winner: winnerB } = this.props.children[0].props;
+
     const playGame =
-      this.props.children[0].props.team &&
-      this.props.children[1].props.team &&
-      !this.props.children[0].props.winner &&
-      !this.props.children[1].props.winner ? (
+      teamA && teamB && !winnerA && !winnerB ? (
         <button onClick={() => this.handleDetermineWinner(this.props.children)}>
           Play
         </button>

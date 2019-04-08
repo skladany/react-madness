@@ -2,18 +2,33 @@ import React from "react";
 import styled from "styled-components";
 //import PropTypes from "prop-types";
 import NumericInput from "react-numeric-input";
+import { numericInputStyles } from "../styles/numeric-input-styles";
+import {
+  secondaryColor,
+  loserColor,
+  winnerColor
+} from "../styles/color-scheme";
 
 const TeamDiv = styled.div`
-  padding: 12px;
-  border: 1px solid red;
+  padding: 4px;
+  margin: 4px;
+  border: 2px solid ${secondaryColor};
 
   &.winner {
-    background-color: green;
+    background-color: ${winnerColor};
   }
 
   &.loser {
-    background-color: red;
+    background-color: ${loserColor};
   }
+`;
+
+const TeamName = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  padding: 0 8px;
 `;
 
 const SeedWrapper = styled.div`
@@ -35,17 +50,12 @@ class Team extends React.Component {
 
   handleNumericClick = e => {
     e.stopPropagation();
-    console.log("handleNumericClick");
   };
 
   handlePickWinner = e => {
-    console.log("handlePickWinner");
-
     const { team, round, division, matchId, winner } = this.props;
-    console.log("Round", round);
 
     if (round > 1) {
-      console.log("do nothing");
       return false;
     } else if (round == 1) {
       this.props.unPickWinner({
@@ -86,6 +96,7 @@ class Team extends React.Component {
             name={this.props.team.slug}
             value={this.props.team.seed}
             onChange={this.props.handleSeedChange}
+            style={numericInputStyles}
           />
         </SeedWrapper>
       ) : (
@@ -97,7 +108,7 @@ class Team extends React.Component {
 
     return (
       <TeamDiv className={teamStatus} onClick={this.handlePickWinner}>
-        {teamName}
+        <TeamName>{teamName}</TeamName>
         {teamSeed}
       </TeamDiv>
     );

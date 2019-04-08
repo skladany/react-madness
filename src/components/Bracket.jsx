@@ -1,21 +1,8 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import Division from "../styles/Division.js";
+import Round from "../styles/Round.js";
 import Matchup from "./Matchup";
 import Team from "./Team";
-
-const Division = styled.section`
-  display: block;
-  padding: 1em;
-  background: purple;
-  clear: both;
-`;
-
-const Round = styled.section`
-  width: 20%;
-  float: left;
-  padding: 1em;
-  background: papayawhip;
-`;
 
 class Bracket extends React.Component {
   render() {

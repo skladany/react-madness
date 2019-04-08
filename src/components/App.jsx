@@ -3,32 +3,36 @@ import styled from "styled-components";
 import Bracket from "./Bracket";
 import { bracket, teams } from "../bracket-team-data";
 import { coinFlips } from "../coinFlips";
-import "../css/App.css";
+import { backgroundColor } from "../styles/color-scheme";
 
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: ${backgroundColor};
 `;
 
 class App extends Component {
-  state = {
-    bracket,
-    teams
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      bracket,
+      teams
+    };
+
+    this.coinFlips = [];
+  }
 
   componentDidMount() {
     this.getCoinFlips().then(data => {
-      this.setState({
-        coinFlips: data.split("\n")
-      });
+      this.coinFlips = data.split("\n");
     });
   }
 
   /* Function works! Using cached data now for testing */
   getCoinFlips = async () => {
     // const response = await fetch(
-    //   "https://www.random.org/integers/?num=100&min=0&max=1&col=1&base=10&format=plain&rnd=new"
+    //   "https://www.random.org/integers/?num=3000&min=0&max=1&col=1&base=10&format=plain&rnd=new"
     // );
 
     // const data = await response.text();
@@ -40,15 +44,9 @@ class App extends Component {
   // 1 = heads
   // 0 = tails
   getCoinFlip = () => {
-    const coinFlips = [...this.state.coinFlips];
-
-    const coinFlip = coinFlips.pop();
-
-    this.setState({
-      coinFlips
-    });
-
-    return coinFlip;
+    const coinFlip = this.coinFlips.pop();
+    console.log("getCoinFlip called", coinFlip, this.coinFlips.length);
+    return coinFlip == 1;
   };
 
   /* Heads (1) goes to seedA
@@ -56,12 +54,9 @@ class App extends Component {
 
      Returns true is Seed A wins, 
      false if seedB wins */
-  flipCoin = (seedA, seedB) => {
-    console.log("seedA", seedA);
-    console.log("seedB", seedB);
-
-    seedA = 4;
-    seedB = 4;
+  flipCoin = (teamA, seedA, teamB, seedB) => {
+    console.log(`=============================================`);
+    console.log(`🏀 ${teamA} (${seedA}) vs ${teamB} (${seedB}) 🏀`);
 
     let seedAwins = 0;
     let seedBwins = 0;
@@ -74,17 +69,19 @@ class App extends Component {
       } else seedBwins++;
 
       console.log(
-        `Flip is ${flipIsHeads} - seedAwins: ${seedAwins}, seedBwins: ${seedBwins}`
+        `🎲 Flip is ${
+          flipIsHeads ? "✅" : "❌"
+        } - ${teamA}: ${seedAwins}, ${teamB}: ${seedBwins}`
       );
 
       // Check for a winner
       if (seedAwins == seedA) {
-        console.log("seedAwins wins", seedAwins);
+        console.log(`🎉 ${teamA} (${seedA}) Wins! 🎉`);
         return true;
       }
 
       if (seedBwins == seedB) {
-        console.log("seedBwins wins", seedBwins);
+        console.log(`🎉 ${teamB} (${seedB}) Wins! 🎉`);
         return false;
       }
     }
@@ -113,11 +110,11 @@ class App extends Component {
     const nextMatchId = Math.floor(matchId / 2);
     const teamLocation = matchId % 2 ? "teamB" : "teamA";
 
-    console.log(Math.round(Math.random()) === 0);
-
     // Super simple way to psueodo randomly pick a winner
     const winningTeamSlug = this.flipCoin(
+      teamA.name,
       parseInt(teamA.seed),
+      teamB.name,
       parseInt(teamB.seed)
     )
       ? teamA.slug
@@ -131,82 +128,80 @@ class App extends Component {
     });
   };
 
-  pickWinner = ({ team, round, division, matchId, winner }) => {
-    return;
+  /* Ability to manually pick & unpick winner. WIP */
 
-    // State is updating, but not getting passed down to round 2 as it should
+  // pickWinner = ({ team, round, division, matchId, winner }) => {
+  //   return;
 
-    // Arbitrary set state of teamA to "win"
-    let bracket = { ...this.state.bracket };
+  //   // State is updating, but not getting passed down to round 2 as it should
 
-    // Set up next match as well
-    const nextRound = parseInt(round) + 1;
-    const nextMatchId = Math.floor(matchId / 2);
-    const teamLocation = matchId % 2 ? "teamB" : "teamA";
+  //   // Arbitrary set state of teamA to "win"
+  //   let bracket = { ...this.state.bracket };
 
-    console.log("d", division);
-    console.log(round);
-    console.log(matchId);
-    console.log(winner);
+  //   // Set up next match as well
+  //   const nextRound = parseInt(round) + 1;
+  //   const nextMatchId = Math.floor(matchId / 2);
+  //   const teamLocation = matchId % 2 ? "teamB" : "teamA";
 
-    // Set the pick!
-    bracket[division][round][matchId].winner = winner;
-    bracket[division][nextRound][nextMatchId][teamLocation] = winner;
+  //   console.log("d", division);
+  //   console.log(round);
+  //   console.log(matchId);
+  //   console.log(winner);
 
-    console.log("hey", winner);
+  //   // Set the pick!
+  //   bracket[division][round][matchId].winner = winner;
+  //   bracket[division][nextRound][nextMatchId][teamLocation] = winner;
 
-    this.setState({
-      bracket
-    });
-  };
+  //   console.log("hey", winner);
 
-  unPickWinner = ({ team, round, division, matchId, winner }) => {
-    return;
+  //   this.setState({
+  //     bracket
+  //   });
+  // };
 
-    // State is updating, but not getting passed down to round 2 as it should
+  // unPickWinner = ({ team, round, division, matchId, winner }) => {
+  //   return;
 
-    // Arbitrary set state of teamA to "win"
-    let bracket = { ...this.state.bracket };
+  //   // State is updating, but not getting passed down to round 2 as it should
 
-    // Set up next match as well
-    const nextRound = parseInt(round) + 1;
-    const nextMatchId = Math.floor(matchId / 2);
-    const teamLocation = matchId % 2 ? "teamB" : "teamA";
+  //   // Arbitrary set state of teamA to "win"
+  //   let bracket = { ...this.state.bracket };
 
-    console.log("d", division);
-    console.log(round);
-    console.log(matchId);
-    console.log(winner);
+  //   // Set up next match as well
+  //   const nextRound = parseInt(round) + 1;
+  //   const nextMatchId = Math.floor(matchId / 2);
+  //   const teamLocation = matchId % 2 ? "teamB" : "teamA";
 
-    // Unset this box
-    bracket[division][round][matchId].winner = false;
+  //   console.log("d", division);
+  //   console.log(round);
+  //   console.log(matchId);
+  //   console.log(winner);
 
-    // Unset the child box
-    bracket[division][nextRound][nextMatchId * 2][teamLocation] = false;
+  //   // Unset this box
+  //   bracket[division][round][matchId].winner = false;
 
-    // Unset the parent box
-    bracket[division][round - 1][matchId * 2].winner = false;
-    // bracket[division][nextRound - 1][nextMatchId * 2][teamLocation] = false;
+  //   // Unset the child box
+  //   bracket[division][nextRound][nextMatchId * 2][teamLocation] = false;
 
-    this.setState({
-      bracket
-    });
-  };
+  //   // Unset the parent box
+  //   bracket[division][round - 1][matchId * 2].winner = false;
+  //   // bracket[division][nextRound - 1][nextMatchId * 2][teamLocation] = false;
+
+  //   this.setState({
+  //     bracket
+  //   });
+  // };
 
   render() {
-    const status = <li>flip a coin</li>;
-
     return (
       <div className="App">
-        {JSON.stringify(this.state)}
-        <ul>{status}</ul>
         <Bracket
           bracket={this.state.bracket}
           teams={this.state.teams}
           handleSeedChange={this.handleSeedChange}
           determineWinner={this.determineWinner}
-          pickWinner={this.pickWinner}
-          unPickWinner={this.unPickWinner}
+          // pickWinner={this.pickWinner}
+          // unPickWinner={this.unPickWinner}
         />
       </div>
     );
