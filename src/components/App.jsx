@@ -31,14 +31,14 @@ class App extends Component {
 
   /* Function works! Using cached data now for testing */
   getCoinFlips = async () => {
-    // const response = await fetch(
-    //   "https://www.random.org/integers/?num=3000&min=0&max=1&col=1&base=10&format=plain&rnd=new"
-    // );
+    const response = await fetch(
+      "https://www.random.org/integers/?num=3000&min=0&max=1&col=1&base=10&format=plain&rnd=new"
+    );
 
-    // const data = await response.text();
+    const data = await response.text();
 
-    // return data;
-    return coinFlips;
+    return data;
+    //return coinFlips;
   };
 
   // 1 = heads
