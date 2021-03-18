@@ -17,14 +17,14 @@ class App extends Component {
 
     this.state = {
       bracket,
-      teams
+      teams,
     };
 
     this.coinFlips = [];
   }
 
   componentDidMount() {
-    this.getCoinFlips().then(data => {
+    this.getCoinFlips().then((data) => {
       this.coinFlips = data.split("\n");
     });
   }
@@ -38,7 +38,7 @@ class App extends Component {
     const data = await response.text();
 
     return data;
-    //return coinFlips;
+    // return coinFlips;
   };
 
   // 1 = heads
@@ -95,7 +95,7 @@ class App extends Component {
     teams[slug].seed = valueAsNumber;
 
     this.setState({
-      teams
+      teams,
     });
   };
 
@@ -124,7 +124,7 @@ class App extends Component {
     bracket[division][nextRound][nextMatchId][teamLocation] = winningTeamSlug;
 
     this.setState({
-      bracket
+      bracket,
     });
   };
 

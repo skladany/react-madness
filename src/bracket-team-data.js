@@ -1,698 +1,698 @@
-/* 2019 Bracket & Seeds */
+/* 2021 Bracket & Seeds */
 
 const bracket = {
-  east: {
-    0: [
-      {
-        teamA: "Duke",
-        teamB: "NorthDakotaState",
-        winner: false
-      },
-      {
-        teamA: "VirginiaCommonwealth",
-        teamB: "CentralFlorida",
-        winner: false
-      },
-      {
-        teamA: "MississippiState",
-        teamB: "Liberty",
-        winner: false
-      },
-      {
-        teamA: "VirginiaTech",
-        teamB: "SaintLouis",
-        winner: false
-      },
-      {
-        teamA: "Maryland",
-        teamB: "Belmont",
-        winner: false
-      },
-      {
-        teamA: "LouisianaState",
-        teamB: "Yale",
-        winner: false
-      },
-      {
-        teamA: "Louisville",
-        teamB: "Minnesota",
-        winner: false
-      },
-      {
-        teamA: "MichiganState",
-        teamB: "Bradley",
-        winner: false
-      }
-    ],
-    1: [
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      },
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      },
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      },
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      }
-    ],
-    2: [
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      },
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      }
-    ],
-    3: [
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      }
-    ],
-    4: [
-      {
-        teamA: false,
-        teamB: false,
-        winner: false
-      }
-    ]
-  },
   west: {
     0: [
       {
         teamA: "Gonzaga",
-        teamB: "FairleighDickinson",
-        winner: false
+        teamB: "NorfolkStateAppalachianState",
+        winner: false,
       },
       {
-        teamA: "Syracuse",
-        teamB: "Baylor",
-        winner: false
+        teamA: "Oklahoma",
+        teamB: "Missouri",
+        winner: false,
       },
       {
-        teamA: "Marquette",
-        teamB: "MurrayState",
-        winner: false
+        teamA: "Creighton",
+        teamB: "UCSantaBarbara",
+        winner: false,
       },
       {
-        teamA: "FloridaState",
-        teamB: "Vermont",
-        winner: false
+        teamA: "Virginia",
+        teamB: "Ohio",
+        winner: false,
       },
       {
-        teamA: "Buffalo",
-        teamB: "ArizonaState",
-        winner: false
+        teamA: "SouthernCalifornia",
+        teamB: "DrakeWichitaState",
+        winner: false,
       },
       {
-        teamA: "TexasTech",
-        teamB: "NorthernKentucky",
-        winner: false
+        teamA: "Kansas",
+        teamB: "EasternWashington",
+        winner: false,
       },
       {
-        teamA: "Nevada",
-        teamB: "Florida",
-        winner: false
+        teamA: "Oregon",
+        teamB: "VirginiaCommonwealth",
+        winner: false,
       },
       {
-        teamA: "Michigan",
-        teamB: "Montana",
-        winner: false
-      }
+        teamA: "Iowa",
+        teamB: "GrandCanyon",
+        winner: false,
+      },
     ],
     1: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     2: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     3: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     4: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
-    ]
+        winner: false,
+      },
+    ],
+  },
+  east: {
+    0: [
+      {
+        teamA: "Michigan",
+        teamB: "MountStMarysTexasSouthern",
+        winner: false,
+      },
+      {
+        teamA: "LouisianaState",
+        teamB: "StBonaventure",
+        winner: false,
+      },
+      {
+        teamA: "Colorado",
+        teamB: "Georgetown",
+        winner: false,
+      },
+      {
+        teamA: "FloridaState",
+        teamB: "NorthCarolinaGreensboro",
+        winner: false,
+      },
+      {
+        teamA: "BrighamYoung",
+        teamB: "MichiganStateUCLA",
+        winner: false,
+      },
+      {
+        teamA: "Texas",
+        teamB: "AbileneChristian",
+        winner: false,
+      },
+      {
+        teamA: "Connecticut",
+        teamB: "Maryland",
+        winner: false,
+      },
+      {
+        teamA: "Alabama",
+        teamB: "Iona",
+        winner: false,
+      },
+    ],
+    1: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+    ],
+    2: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+    ],
+    3: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+    ],
+    4: [
+      {
+        teamA: false,
+        teamB: false,
+        winner: false,
+      },
+    ],
   },
   south: {
     0: [
       {
-        teamA: "Virginia",
-        teamB: "GardnerWebb",
-        winner: false
+        teamA: "Baylor",
+        teamB: "Hartford",
+        winner: false,
       },
       {
-        teamA: "Mississippi",
-        teamB: "Oklahoma",
-        winner: false
-      },
-      {
-        teamA: "Wisconsin",
-        teamB: "Oregon",
-        winner: false
-      },
-      {
-        teamA: "KansasState",
-        teamB: "UcIrvine",
-        winner: false
+        teamA: "NorthCarolina",
+        teamB: "Wisconsin",
+        winner: false,
       },
       {
         teamA: "Villanova",
-        teamB: "SaintMarysCa",
-        winner: false
+        teamB: "Winthrop",
+        winner: false,
       },
       {
         teamA: "Purdue",
-        teamB: "OldDominion",
-        winner: false
+        teamB: "NorthTexas",
+        winner: false,
       },
       {
-        teamA: "Cincinnati",
-        teamB: "Iowa",
-        winner: false
+        teamA: "TexasTech",
+        teamB: "UtahState",
+        winner: false,
       },
       {
-        teamA: "Tennessee",
+        teamA: "Arkansas",
         teamB: "Colgate",
-        winner: false
-      }
+        winner: false,
+      },
+      {
+        teamA: "Florida",
+        teamB: "VirginiaTech",
+        winner: false,
+      },
+      {
+        teamA: "OhioState",
+        teamB: "OralRoberts",
+        winner: false,
+      },
     ],
     1: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     2: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     3: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     4: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
-    ]
+        winner: false,
+      },
+    ],
   },
   midwest: {
     0: [
       {
-        teamA: "NorthCarolina",
-        teamB: "Iona",
-        winner: false
+        teamA: "Illinois",
+        teamB: "Drexel",
+        winner: false,
       },
       {
-        teamA: "UtahState",
-        teamB: "Washington",
-        winner: false
+        teamA: "LoyolaIL",
+        teamB: "GeorgiaTech",
+        winner: false,
       },
       {
-        teamA: "Auburn",
-        teamB: "NewMexicoState",
-        winner: false
+        teamA: "Tennessee",
+        teamB: "OregonState",
+        winner: false,
       },
       {
-        teamA: "Kansas",
-        teamB: "Northeastern",
-        winner: false
+        teamA: "OklahomaState",
+        teamB: "Liberty",
+        winner: false,
       },
       {
-        teamA: "IowaState",
-        teamB: "OhioState",
-        winner: false
+        teamA: "SanDiegoState",
+        teamB: "Syracuse",
+        winner: false,
+      },
+      {
+        teamA: "WestVirginia",
+        teamB: "MoreheadState",
+        winner: false,
+      },
+      {
+        teamA: "Clemson",
+        teamB: "Rutgers",
+        winner: false,
       },
       {
         teamA: "Houston",
-        teamB: "GeorgiaState",
-        winner: false
+        teamB: "ClevelandState",
+        winner: false,
       },
-      {
-        teamA: "Wofford",
-        teamB: "SetonHall",
-        winner: false
-      },
-      {
-        teamA: "Kentucky",
-        teamB: "AbileneChristian",
-        winner: false
-      }
     ],
     1: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     2: [
       {
         teamA: false,
         teamB: false,
-        winner: false
+        winner: false,
       },
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     3: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
+        winner: false,
+      },
     ],
     4: [
       {
         teamA: false,
         teamB: false,
-        winner: false
-      }
-    ]
-  }
+        winner: false,
+      },
+    ],
+  },
 };
 
 /* Seeds */
 const teams = {
-  Duke: {
-    name: "Duke",
-    slug: "Duke",
-    seed: 1
-  },
-  MichiganState: {
-    name: "Michigan State",
-    slug: "MichiganState",
-    seed: 2
-  },
-  LouisianaState: {
-    name: "Louisiana State",
-    slug: "LouisianaState",
-    seed: 3
-  },
-  VirginiaTech: {
-    name: "Virginia Tech",
-    slug: "VirginiaTech",
-    seed: 4
-  },
-  MississippiState: {
-    name: "Mississippi State",
-    slug: "MississippiState",
-    seed: 5
-  },
-  Maryland: {
-    name: "Maryland",
-    slug: "Maryland",
-    seed: 6
-  },
-  Louisville: {
-    name: "Louisville",
-    slug: "Louisville",
-    seed: 7
-  },
-  VirginiaCommonwealth: {
-    name: "Virginia Commonwealth",
-    slug: "VirginiaCommonwealth",
-    seed: 8
-  },
-  CentralFlorida: {
-    name: "Central Florida",
-    slug: "CentralFlorida",
-    seed: 9
-  },
-  Minnesota: {
-    name: "Minnesota",
-    slug: "Minnesota",
-    seed: 10
-  },
-  Belmont: {
-    name: "Belmont",
-    slug: "Belmont",
-    seed: 11
-  },
-  Liberty: {
-    name: "Liberty",
-    slug: "Liberty",
-    seed: 12
-  },
-  SaintLouis: {
-    name: "Saint Louis",
-    slug: "SaintLouis",
-    seed: 13
-  },
-  Yale: {
-    name: "Yale",
-    slug: "Yale",
-    seed: 14
-  },
-  Bradley: {
-    name: "Bradley",
-    slug: "Bradley",
-    seed: 15
-  },
-  NorthDakotaState: {
-    name: "North Dakota State",
-    slug: "NorthDakotaState",
-    seed: 16
-  },
-  NorthCarolina: {
-    name: "North Carolina",
-    slug: "NorthCarolina",
-    seed: 1
-  },
-  Kentucky: {
-    name: "Kentucky",
-    slug: "Kentucky",
-    seed: 2
-  },
-  Houston: {
-    name: "Houston",
-    slug: "Houston",
-    seed: 3
-  },
-  Kansas: {
-    name: "Kansas",
-    slug: "Kansas",
-    seed: 4
-  },
-  Auburn: {
-    name: "Auburn",
-    slug: "Auburn",
-    seed: 5
-  },
-  IowaState: {
-    name: "Iowa State",
-    slug: "IowaState",
-    seed: 6
-  },
-  Wofford: {
-    name: "Wofford",
-    slug: "Wofford",
-    seed: 7
-  },
-  UtahState: {
-    name: "Utah State",
-    slug: "UtahState",
-    seed: 8
-  },
-  Washington: {
-    name: "Washington",
-    slug: "Washington",
-    seed: 9
-  },
-  SetonHall: {
-    name: "Seton Hall",
-    slug: "SetonHall",
-    seed: 10
-  },
-  OhioState: {
-    name: "Ohio State",
-    slug: "OhioState",
-    seed: 11
-  },
-  NewMexicoState: {
-    name: "New Mexico State",
-    slug: "NewMexicoState",
-    seed: 12
-  },
-  Northeastern: {
-    name: "Northeastern",
-    slug: "Northeastern",
-    seed: 13
-  },
-  GeorgiaState: {
-    name: "Georgia State",
-    slug: "GeorgiaState",
-    seed: 14
-  },
-  AbileneChristian: {
-    name: "Abilene Christian",
-    slug: "AbileneChristian",
-    seed: 15
-  },
-  Iona: {
-    name: "Iona",
-    slug: "Iona",
-    seed: 16
-  },
-  Virginia: {
-    name: "Virginia",
-    slug: "Virginia",
-    seed: 1
-  },
-  Tennessee: {
-    name: "Tennessee",
-    slug: "Tennessee",
-    seed: 2
-  },
-  Purdue: {
-    name: "Purdue",
-    slug: "Purdue",
-    seed: 3
-  },
-  KansasState: {
-    name: "Kansas State",
-    slug: "KansasState",
-    seed: 4
-  },
-  Wisconsin: {
-    name: "Wisconsin",
-    slug: "Wisconsin",
-    seed: 5
-  },
-  Villanova: {
-    name: "Villanova",
-    slug: "Villanova",
-    seed: 6
-  },
-  Cincinnati: {
-    name: "Cincinnati",
-    slug: "Cincinnati",
-    seed: 7
-  },
-  Mississippi: {
-    name: "Mississippi",
-    slug: "Mississippi",
-    seed: 8
-  },
-  Oklahoma: {
-    name: "Oklahoma",
-    slug: "Oklahoma",
-    seed: 9
-  },
-  Iowa: {
-    name: "Iowa",
-    slug: "Iowa",
-    seed: 10
-  },
-  SaintMarysCa: {
-    name: "Saint Mary's (CA)",
-    slug: "SaintMarysCa",
-    seed: 11
-  },
-  Oregon: {
-    name: "Oregon",
-    slug: "Oregon",
-    seed: 12
-  },
-  UcIrvine: {
-    name: "UC-Irvine",
-    slug: "UcIrvine",
-    seed: 13
-  },
-  OldDominion: {
-    name: "Old Dominion",
-    slug: "OldDominion",
-    seed: 14
-  },
-  Colgate: {
-    name: "Colgate",
-    slug: "Colgate",
-    seed: 15
-  },
-  GardnerWebb: {
-    name: "Gardner-Webb",
-    slug: "GardnerWebb",
-    seed: 16
-  },
-  Gonzaga: {
-    name: "Gonzaga",
-    slug: "Gonzaga",
-    seed: 1
-  },
   Michigan: {
     name: "Michigan",
     slug: "Michigan",
-    seed: 2
+    seed: 1,
   },
-  TexasTech: {
-    name: "Texas Tech",
-    slug: "TexasTech",
-    seed: 3
+  Alabama: {
+    name: "Alabama",
+    slug: "Alabama",
+    seed: 2,
+  },
+  Texas: {
+    name: "Texas",
+    slug: "Texas",
+    seed: 3,
   },
   FloridaState: {
     name: "Florida State",
     slug: "FloridaState",
-    seed: 4
+    seed: 4,
   },
-  Marquette: {
-    name: "Marquette",
-    slug: "Marquette",
-    seed: 5
+  Colorado: {
+    name: "Colorado",
+    slug: "Colorado",
+    seed: 5,
   },
-  Buffalo: {
-    name: "Buffalo",
-    slug: "Buffalo",
-    seed: 6
+  BrighamYoung: {
+    name: "Brigham Young",
+    slug: "BrighamYoung",
+    seed: 6,
   },
-  Nevada: {
-    name: "Nevada",
-    slug: "Nevada",
-    seed: 7
+  Connecticut: {
+    name: "Connecticut",
+    slug: "Connecticut",
+    seed: 7,
   },
-  Syracuse: {
-    name: "Syracuse",
-    slug: "Syracuse",
-    seed: 8
+  LouisianaState: {
+    name: "Louisiana State",
+    slug: "LouisianaState",
+    seed: 8,
+  },
+  StBonaventure: {
+    name: "St. Bonaventure",
+    slug: "StBonaventure",
+    seed: 9,
+  },
+  Maryland: {
+    name: "Maryland",
+    slug: "Maryland",
+    seed: 10,
+  },
+  MichiganStateUCLA: {
+    name: "Michigan State / UCLA",
+    slug: "MichiganStateUCLA",
+    seed: 11,
+  },
+  Georgetown: {
+    name: "Georgetown",
+    slug: "Georgetown",
+    seed: 12,
+  },
+  NorthCarolinaGreensboro: {
+    name: "North Carolina-Greensboro",
+    slug: "NorthCarolinaGreensboro",
+    seed: 13,
+  },
+  AbileneChristian: {
+    name: "Abilene Christian",
+    slug: "AbileneChristian",
+    seed: 14,
+  },
+  Iona: {
+    name: "Iona",
+    slug: "Iona",
+    seed: 15,
+  },
+  MountStMarysTexasSouthern: {
+    name: "Mount St. Mary's / Texas Southern",
+    slug: "MountStMarysTexasSouthern",
+    seed: 16,
+  },
+  Gonzaga: {
+    name: "Gonzaga",
+    slug: "Gonzaga",
+    seed: 1,
+  },
+  Iowa: {
+    name: "Iowa",
+    slug: "Iowa",
+    seed: 2,
+  },
+  Kansas: {
+    name: "Kansas",
+    slug: "Kansas",
+    seed: 3,
+  },
+  Virginia: {
+    name: "Virginia",
+    slug: "Virginia",
+    seed: 4,
+  },
+  Creighton: {
+    name: "Creighton",
+    slug: "Creighton",
+    seed: 5,
+  },
+  SouthernCalifornia: {
+    name: "Southern California",
+    slug: "SouthernCalifornia",
+    seed: 6,
+  },
+  Oregon: {
+    name: "Oregon",
+    slug: "Oregon",
+    seed: 7,
+  },
+  Oklahoma: {
+    name: "Oklahoma",
+    slug: "Oklahoma",
+    seed: 8,
+  },
+  Missouri: {
+    name: "Missouri",
+    slug: "Missouri",
+    seed: 9,
+  },
+  VirginiaCommonwealth: {
+    name: "Virginia Commonwealth",
+    slug: "VirginiaCommonwealth",
+    seed: 10,
+  },
+  DrakeWichitaState: {
+    name: "Drake / Wichita State",
+    slug: "DrakeWichitaState",
+    seed: 11,
+  },
+  UCSantaBarbara: {
+    name: "UC-Santa Barbara",
+    slug: "UCSantaBarbara",
+    seed: 12,
+  },
+  Ohio: {
+    name: "Ohio",
+    slug: "Ohio",
+    seed: 13,
+  },
+  EasternWashington: {
+    name: "Eastern Washington",
+    slug: "EasternWashington",
+    seed: 14,
+  },
+  GrandCanyon: {
+    name: "Grand Canyon",
+    slug: "GrandCanyon",
+    seed: 15,
+  },
+  NorfolkStateAppalachianState: {
+    name: "Norfolk State / Appalachian State",
+    slug: "NorfolkStateAppalachianState",
+    seed: 16,
   },
   Baylor: {
     name: "Baylor",
     slug: "Baylor",
-    seed: 9
+    seed: 1,
+  },
+  OhioState: {
+    name: "Ohio State",
+    slug: "OhioState",
+    seed: 2,
+  },
+  Arkansas: {
+    name: "Arkansas",
+    slug: "Arkansas",
+    seed: 3,
+  },
+  Purdue: {
+    name: "Purdue",
+    slug: "Purdue",
+    seed: 4,
+  },
+  Villanova: {
+    name: "Villanova",
+    slug: "Villanova",
+    seed: 5,
+  },
+  TexasTech: {
+    name: "Texas Tech",
+    slug: "TexasTech",
+    seed: 6,
   },
   Florida: {
     name: "Florida",
     slug: "Florida",
-    seed: 10
+    seed: 7,
   },
-  ArizonaState: {
-    name: "Arizona State",
-    slug: "ArizonaState",
-    seed: 11
+  NorthCarolina: {
+    name: "North Carolina",
+    slug: "NorthCarolina",
+    seed: 8,
   },
-  MurrayState: {
-    name: "Murray State",
-    slug: "MurrayState",
-    seed: 12
+  Wisconsin: {
+    name: "Wisconsin",
+    slug: "Wisconsin",
+    seed: 9,
   },
-  Vermont: {
-    name: "Vermont",
-    slug: "Vermont",
-    seed: 13
+  VirginiaTech: {
+    name: "Virginia Tech",
+    slug: "VirginiaTech",
+    seed: 10,
   },
-  NorthernKentucky: {
-    name: "Northern Kentucky",
-    slug: "NorthernKentucky",
-    seed: 14
+  UtahState: {
+    name: "Utah State",
+    slug: "UtahState",
+    seed: 11,
   },
-  Montana: {
-    name: "Montana",
-    slug: "Montana",
-    seed: 15
+  Winthrop: {
+    name: "Winthrop",
+    slug: "Winthrop",
+    seed: 12,
   },
-  FairleighDickinson: {
-    name: "Fairleigh Dickinson",
-    slug: "FairleighDickinson",
-    seed: 16
-  }
+  NorthTexas: {
+    name: "North Texas",
+    slug: "NorthTexas",
+    seed: 13,
+  },
+  Colgate: {
+    name: "Colgate",
+    slug: "Colgate",
+    seed: 14,
+  },
+  OralRoberts: {
+    name: "Oral Roberts",
+    slug: "OralRoberts",
+    seed: 15,
+  },
+  Hartford: {
+    name: "Hartford",
+    slug: "Hartford",
+    seed: 16,
+  },
+  Illinois: {
+    name: "Illinois",
+    slug: "Illinois",
+    seed: 1,
+  },
+  Houston: {
+    name: "Houston",
+    slug: "Houston",
+    seed: 2,
+  },
+  WestVirginia: {
+    name: "West Virginia",
+    slug: "WestVirginia",
+    seed: 3,
+  },
+  OklahomaState: {
+    name: "Oklahoma State",
+    slug: "OklahomaState",
+    seed: 4,
+  },
+  Tennessee: {
+    name: "Tennessee",
+    slug: "Tennessee",
+    seed: 5,
+  },
+  SanDiegoState: {
+    name: "San Diego State",
+    slug: "SanDiegoState",
+    seed: 6,
+  },
+  Clemson: {
+    name: "Clemson",
+    slug: "Clemson",
+    seed: 7,
+  },
+  LoyolaIL: {
+    name: "Loyola (IL)",
+    slug: "LoyolaIL",
+    seed: 8,
+  },
+  GeorgiaTech: {
+    name: "Georgia Tech",
+    slug: "GeorgiaTech",
+    seed: 9,
+  },
+  Rutgers: {
+    name: "Rutgers",
+    slug: "Rutgers",
+    seed: 10,
+  },
+  Syracuse: {
+    name: "Syracuse",
+    slug: "Syracuse",
+    seed: 11,
+  },
+  OregonState: {
+    name: "Oregon State",
+    slug: "OregonState",
+    seed: 12,
+  },
+  Liberty: {
+    name: "Liberty",
+    slug: "Liberty",
+    seed: 13,
+  },
+  MoreheadState: {
+    name: "Morehead State",
+    slug: "MoreheadState",
+    seed: 14,
+  },
+  ClevelandState: {
+    name: "Cleveland State",
+    slug: "ClevelandState",
+    seed: 15,
+  },
+  Drexel: {
+    name: "Drexel",
+    slug: "Drexel",
+    seed: 16,
+  },
 };
 
 export { bracket, teams };
